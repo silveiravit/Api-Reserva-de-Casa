@@ -1,2 +1,2 @@
 # Api-Reserva-de-Casa
-Exercicio de desenvolvimento de api
+Api desenvolvida com NodeJS e MongoDB
