@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const ReserveModel = new mongoose.Schema({
+const ReserveSchema = new mongoose.Schema({
     date: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -12,4 +12,4 @@ const ReserveModel = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Reserve', ReserveModel)
+module.exports = mongoose.model('Reserve', ReserveSchema)

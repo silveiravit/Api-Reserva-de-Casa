@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const HouseModel = new mongoose.Schema({
-    image: String,
+const HouseSchema = new mongoose.Schema({
+    thumbnail: String,
     description: String,
     price: Number,
     location: String,
@@ -10,6 +10,14 @@ const HouseModel = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
+}, { // aqui é para colocar a variável virtual assim que fizermos a requisição
+    toJSON: {
+        virtuals: true
+    }
 })
 
-module.exports = mongoose.model('House', HouseModel)
+HouseSchema.virtual('thumbnail_url').get(function (){ 
+    return `http://localhost:3333/files/${this.thumbnail}`
+})
+
+module.exports = mongoose.model('House', HouseSchema)
